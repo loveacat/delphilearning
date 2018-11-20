@@ -1,0 +1,14 @@
+﻿[ADOQuery1]
+Coordinates=10,10,106,146
+Visible=False
+
+[StringGrid1]
+Coordinates=170,20,80,124
+Visible=True
+
+[BindSourceDB1]
+Coordinates=10,10,106,146
+
+[Button1]
+Coordinates=135,163,59,58
+
