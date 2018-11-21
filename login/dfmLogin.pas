@@ -1,4 +1,4 @@
-unit Unit1;
+unit dfmLogin;
 
 interface
 
@@ -21,7 +21,7 @@ uses
   dxSkinValentine, dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
   dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint,
   dxSkinXmas2008Blue, dxGDIPlusClasses, cxImage, Vcl.StdCtrls, Vcl.Mask,
-  Data.DB, Data.Win.ADODB;
+  Data.DB, Data.Win.ADODB, cxClasses, dxSkinsForm;
 
 type
   TForm1 = class(TForm)
@@ -33,7 +33,7 @@ type
     Button1: TButton;
     Button2: TButton;
     Edit2: TEdit;
-    ADOConnection1: TADOConnection;
+    dxSkinController1: TdxSkinController;
     procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
@@ -43,29 +43,59 @@ type
 
 var
   Form1: TForm1;
-
+  i:Integer = 0 ;
 
 implementation
 
 {$R *.dfm}
 
-uses Unit3;
+uses dfmMain,dbMain;
+
+
 
 procedure TForm1.Button2Click(Sender: TObject);
 var
   user: String;
   pwd: String;
+
 begin
   user := Edit1.Text;
   pwd := Edit2.Text;
-  if  (user ='youhao') And (pwd='ctgu') then
+  with db.ADOQuery1 do
     begin
-      Form3.Show;
-      Form1.Hide;
-    end
-  else
-    showMessage('登录失败');
+      Close;
+      SQL.Clear;
+      SQL.Text:='select * from admin where username=:Sign';
+      Parameters.ParamByName('Sign').Value:=Trim(Edit1.Text) ;
+      Open;
+    end;
+    if db.ADOQuery1.IsEmpty then
+      begin
+        Winapi.Windows.MessageBox(0,'不存在的用户名','登录失败',MB_OK  );
+        inc(i);
+        if i = 3 then begin
+          ShowMessage('错误3次强制退出');
+          ModalResult := mrNO;
+        end;
+      end
+    else if db.ADOQuery1.Fieldbyname('pwd').AsString <> Edit2.Text then
+    begin
+      //MainForm := TMainForm.Create(Application);
+      Winapi.Windows.MessageBox(0,'用户名或者密码错误','登录失败',MB_OK  );
+      inc(i);
+      if i = 3 then begin
+          ShowMessage('错误3次强制退出');
+          ModalResult := mrNO;
+      end;
 
-end;
+
+    end
+    else
+      //Winapi.Windows.MessageBox(0,'用户名或者密码错误','登录失败',MB_OK  );
+      begin
+      Form1.Hide;
+      ModalResult := mrOK;
+      end;
+    end;
 
 end.

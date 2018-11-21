@@ -1,0 +1,70 @@
+object Form3: TForm3
+  Left = 0
+  Top = 0
+  Align = alClient
+  Caption = 'Form3'
+  ClientHeight = 300
+  ClientWidth = 635
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  object cxGrid1: TcxGrid
+    Left = 40
+    Top = 8
+    Width = 330
+    Height = 264
+    TabOrder = 0
+    object cxGrid1DBTableView1: TcxGridDBTableView
+      Navigator.Buttons.CustomButtons = <>
+      DataController.DataSource = db.dsSiteTemp
+      DataController.Summary.DefaultGroupSummaryItems = <>
+      DataController.Summary.FooterSummaryItems = <>
+      DataController.Summary.SummaryGroups = <>
+      object cxGrid1DBTableView1time: TcxGridDBColumn
+        DataBinding.FieldName = 'time'
+        Width = 50
+      end
+      object cxGrid1DBTableView1cnumber: TcxGridDBColumn
+        DataBinding.FieldName = 'cnumber'
+        Width = 50
+      end
+      object cxGrid1DBTableView1testid: TcxGridDBColumn
+        DataBinding.FieldName = 'testid'
+        Width = 50
+      end
+      object cxGrid1DBTableView1tem: TcxGridDBColumn
+        DataBinding.FieldName = 'tem'
+        Width = 50
+      end
+      object cxGrid1DBTableView1corZ: TcxGridDBColumn
+        DataBinding.FieldName = 'corZ'
+        Width = 50
+      end
+      object cxGrid1DBTableView1corY: TcxGridDBColumn
+        DataBinding.FieldName = 'corY'
+        Width = 50
+      end
+      object cxGrid1DBTableView1corX: TcxGridDBColumn
+        DataBinding.FieldName = 'corX'
+        Width = 50
+      end
+      object cxGrid1DBTableView1isSpe: TcxGridDBColumn
+        DataBinding.FieldName = 'isSpe'
+        Width = 50
+      end
+      object cxGrid1DBTableView1Column1: TcxGridDBColumn
+        Width = 50
+      end
+    end
+    object cxGrid1Level1: TcxGridLevel
+      GridView = cxGrid1DBTableView1
+    end
+  end
+end

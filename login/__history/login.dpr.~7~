@@ -1,0 +1,24 @@
+program login;
+
+uses
+  Vcl.Forms,
+  dfmLogin in 'dfmLogin.pas' {Form1},
+  dfmMain in 'dfmMain.pas' {MainForm},
+  dbMain in 'dbMain.pas' {db: TDataModule},
+  dfmDataView in 'dfmDataView.pas' {dataViewForm};
+
+{$R *.res}
+var
+  checkLogin :Boolean = False;
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TForm1, Form1);
+  if Form1.CheckLogin then
+    begin
+      Application.CreateForm(Tdb, db);
+      Application.CreateForm(TMainForm, MainForm);
+
+  Application.Run;
+
+end.

@@ -1,7 +1,24 @@
-unit Unit2;
+unit dataform;
 
 interface
 
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
+
+type
+  TdataForm = class(TForm)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dataForm: TdataForm;
+
 implementation
+
+{$R *.dfm}
 
 end.

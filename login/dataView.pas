@@ -1,15 +1,13 @@
-unit Unit2;
-
+unit dataView;
 
 interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls, cxGraphics, cxControls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs;
 
 type
-  TForm2 = class(TForm)
-
+  TdataForm = class(TForm)
   private
     { Private declarations }
   public
@@ -17,11 +15,10 @@ type
   end;
 
 var
-  Form2: TForm1;
+  TdataView: TdataForm;
 
 implementation
 
 {$R *.dfm}
 
 end.
-
