@@ -1,0 +1,129 @@
+object dfmDataAdd: TdfmDataAdd
+  Left = 0
+  Top = 0
+  Caption = 'dfmDataAdd'
+  ClientHeight = 377
+  ClientWidth = 520
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object cxDBButtonEdit1: TcxDBButtonEdit
+    Left = 160
+    Top = 32
+    Properties.Buttons = <
+      item
+        Default = True
+        Kind = bkEllipsis
+      end>
+    TabOrder = 0
+    Width = 121
+  end
+  object cxLabel1: TcxLabel
+    Left = 72
+    Top = 33
+    Caption = 'cxLabel1'
+  end
+  object cxDBButtonEdit2: TcxDBButtonEdit
+    Left = 160
+    Top = 66
+    Properties.Buttons = <
+      item
+        Default = True
+        Kind = bkEllipsis
+      end>
+    TabOrder = 2
+    Width = 121
+  end
+  object cxLabel2: TcxLabel
+    Left = 72
+    Top = 64
+    Caption = 'cxLabel1'
+  end
+  object cxDBButtonEdit3: TcxDBButtonEdit
+    Left = 160
+    Top = 95
+    Properties.Buttons = <
+      item
+        Default = True
+        Kind = bkEllipsis
+      end>
+    TabOrder = 4
+    Width = 121
+  end
+  object cxLabel3: TcxLabel
+    Left = 72
+    Top = 96
+    Caption = 'cxLabel1'
+  end
+  object cxDBButtonEdit4: TcxDBButtonEdit
+    Left = 160
+    Top = 128
+    Properties.Buttons = <
+      item
+        Default = True
+        Kind = bkEllipsis
+      end>
+    TabOrder = 6
+    Width = 121
+  end
+  object cxLabel4: TcxLabel
+    Left = 72
+    Top = 129
+    Caption = 'cxLabel1'
+  end
+  object cxDBButtonEdit5: TcxDBButtonEdit
+    Left = 160
+    Top = 158
+    Properties.Buttons = <
+      item
+        Default = True
+        Kind = bkEllipsis
+      end>
+    TabOrder = 8
+    Width = 121
+  end
+  object cxLabel5: TcxLabel
+    Left = 72
+    Top = 162
+    Caption = 'cxLabel1'
+  end
+  object cxDBButtonEdit6: TcxDBButtonEdit
+    Left = 160
+    Top = 193
+    Properties.Buttons = <
+      item
+        Default = True
+        Kind = bkEllipsis
+      end>
+    TabOrder = 10
+    Width = 121
+  end
+  object cxLabel6: TcxLabel
+    Left = 72
+    Top = 195
+    Caption = 'cxLabel1'
+  end
+  object cxDBButtonEdit7: TcxDBButtonEdit
+    Left = 160
+    Top = 221
+    Properties.Buttons = <
+      item
+        Default = True
+        Kind = bkEllipsis
+      end>
+    TabOrder = 12
+    Width = 121
+  end
+  object cxLabel7: TcxLabel
+    Left = 72
+    Top = 225
+    Caption = 'cxLabel1'
+  end
+end

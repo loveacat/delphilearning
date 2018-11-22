@@ -1,0 +1,93 @@
+unit dfmDataView;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, cxStyles, dxSkinsCore, dxSkinBlack, dxSkinBlue,
+  dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinOffice2016Colorful, dxSkinOffice2016Dark,
+  dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus,
+  dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008,
+  dxSkinTheAsphaltWorld, dxSkinsDefaultPainters, dxSkinValentine,
+  dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
+  dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint,
+  dxSkinXmas2008Blue, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
+  cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxGridLevel, cxClasses,
+  cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxGrid, dxSkinsdxBarPainter, System.Actions, Vcl.ActnList, dxBar,cxGridExportLink ;
+
+type
+  TdataViewForm = class(TForm)
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    dxBarManager1: TdxBarManager;
+    ActionList1: TActionList;
+    dxBarManager1Bar3: TdxBar;
+    dxBarLargeButton1: TdxBarLargeButton;
+    dxBarLargeButton2: TdxBarLargeButton;
+    dxBarLargeButton3: TdxBarLargeButton;
+    addData: TAction;
+    deleteData: TAction;
+    exportData: TAction;
+    dxBarLargeButton4: TdxBarLargeButton;
+    dxBarLargeButton5: TdxBarLargeButton;
+    cxGrid1DBTableView1id: TcxGridDBColumn;
+    cxGrid1DBTableView1bid: TcxGridDBColumn;
+    cxGrid1DBTableView1bottom: TcxGridDBColumn;
+    cxGrid1DBTableView1Top: TcxGridDBColumn;
+    cxGrid1DBTableView1startime: TcxGridDBColumn;
+    cxGrid1DBTableView1closetime: TcxGridDBColumn;
+    cxGrid1DBTableView1bulk: TcxGridDBColumn;
+    cxGrid1DBTableView1ptime: TcxGridDBColumn;
+    cxGrid1DBTableView1power: TcxGridDBColumn;
+    cxGrid1DBTableView1alternate: TcxGridDBColumn;
+    SaveDialog1: TSaveDialog;
+    procedure addDataExecute(Sender: TObject);
+    procedure deleteDataExecute(Sender: TObject);
+    procedure exportDataExecute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dataViewForm: TdataViewForm;
+
+implementation
+uses dbMain,dfmAddData;
+{$R *.dfm}
+
+procedure TdataViewForm.addDataExecute(Sender: TObject);
+begin
+   dfmDataAdd := TdfmDataAdd.Create(self);
+   db.ADOQuery2.Append;
+   dfmDataAdd.ShowModal;
+   dfmDataAdd.Free;
+end;
+
+procedure TdataViewForm.deleteDataExecute(Sender: TObject);
+begin
+  if db.ADOQuery2.RecordCount>0 then
+      db.ADOQuery2.Delete;
+end;
+
+procedure TdataViewForm.exportDataExecute(Sender: TObject);
+begin
+         if SaveDialog1.Execute then
+  begin
+    ExportGridToExcel(SaveDialog1.FileName,cxGrid1)
+  end;
+end;
+
+end.

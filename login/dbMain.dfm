@@ -29,7 +29,7 @@ object db: Tdb
     CursorType = ctStatic
     Parameters = <>
     SQL.Strings = (
-      'select * from siteTemp')
+      'select * from progress')
     Left = 208
     Top = 152
   end

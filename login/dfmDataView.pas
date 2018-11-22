@@ -23,22 +23,38 @@ uses
   dxSkinXmas2008Blue, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
   cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxGridLevel, cxClasses,
   cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
-  cxGrid;
+  cxGrid, dxSkinsdxBarPainter, System.Actions, Vcl.ActnList, dxBar,cxGridExportLink ;
 
 type
   TdataViewForm = class(TForm)
     cxGrid1DBTableView1: TcxGridDBTableView;
     cxGrid1Level1: TcxGridLevel;
     cxGrid1: TcxGrid;
-    cxGrid1DBTableView1time: TcxGridDBColumn;
-    cxGrid1DBTableView1cnumber: TcxGridDBColumn;
-    cxGrid1DBTableView1testid: TcxGridDBColumn;
-    cxGrid1DBTableView1tem: TcxGridDBColumn;
-    cxGrid1DBTableView1corZ: TcxGridDBColumn;
-    cxGrid1DBTableView1corY: TcxGridDBColumn;
-    cxGrid1DBTableView1corX: TcxGridDBColumn;
-    cxGrid1DBTableView1isSpe: TcxGridDBColumn;
-    cxGrid1DBTableView1Column1: TcxGridDBColumn;
+    dxBarManager1: TdxBarManager;
+    ActionList1: TActionList;
+    dxBarManager1Bar3: TdxBar;
+    dxBarLargeButton1: TdxBarLargeButton;
+    dxBarLargeButton2: TdxBarLargeButton;
+    dxBarLargeButton3: TdxBarLargeButton;
+    addData: TAction;
+    deleteData: TAction;
+    exportData: TAction;
+    dxBarLargeButton4: TdxBarLargeButton;
+    dxBarLargeButton5: TdxBarLargeButton;
+    SaveDialog1: TSaveDialog;
+    cxGrid1DBTableView1id: TcxGridDBColumn;
+    cxGrid1DBTableView1bid: TcxGridDBColumn;
+    cxGrid1DBTableView1bottom: TcxGridDBColumn;
+    cxGrid1DBTableView1Top: TcxGridDBColumn;
+    cxGrid1DBTableView1startime: TcxGridDBColumn;
+    cxGrid1DBTableView1closetime: TcxGridDBColumn;
+    cxGrid1DBTableView1bulk: TcxGridDBColumn;
+    cxGrid1DBTableView1ptime: TcxGridDBColumn;
+    cxGrid1DBTableView1power: TcxGridDBColumn;
+    cxGrid1DBTableView1alternate: TcxGridDBColumn;
+    procedure addDataExecute(Sender: TObject);
+    procedure deleteDataExecute(Sender: TObject);
+    procedure exportDataExecute(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,7 +65,29 @@ var
   dataViewForm: TdataViewForm;
 
 implementation
-uses dbMain;
+uses dbMain,dfmAddData;
 {$R *.dfm}
+
+procedure TdataViewForm.addDataExecute(Sender: TObject);
+begin
+   dfmDataAdd := TdfmDataAdd.Create(self);
+   db.ADOQuery2.Append;
+   dfmDataAdd.ShowModal;
+   dfmDataAdd.Free;
+end;
+
+procedure TdataViewForm.deleteDataExecute(Sender: TObject);
+begin
+  if db.ADOQuery2.RecordCount>0 then
+      db.ADOQuery2.Delete;
+end;
+
+procedure TdataViewForm.exportDataExecute(Sender: TObject);
+begin
+  if SaveDialog1.Execute then
+  begin
+    ExportGridToExcel(SaveDialog1.FileName,cxGrid1)
+  end;
+end;
 
 end.

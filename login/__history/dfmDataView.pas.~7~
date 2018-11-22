@@ -1,0 +1,75 @@
+unit dfmDataView;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
+  cxLookAndFeelPainters, cxStyles, dxSkinsCore, dxSkinBlack, dxSkinBlue,
+  dxSkinBlueprint, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinDevExpressDarkStyle, dxSkinDevExpressStyle, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkinHighContrast, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMetropolis,
+  dxSkinMetropolisDark, dxSkinMoneyTwins, dxSkinOffice2007Black,
+  dxSkinOffice2007Blue, dxSkinOffice2007Green, dxSkinOffice2007Pink,
+  dxSkinOffice2007Silver, dxSkinOffice2010Black, dxSkinOffice2010Blue,
+  dxSkinOffice2010Silver, dxSkinOffice2013DarkGray, dxSkinOffice2013LightGray,
+  dxSkinOffice2013White, dxSkinOffice2016Colorful, dxSkinOffice2016Dark,
+  dxSkinPumpkin, dxSkinSeven, dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus,
+  dxSkinSilver, dxSkinSpringTime, dxSkinStardust, dxSkinSummer2008,
+  dxSkinTheAsphaltWorld, dxSkinsDefaultPainters, dxSkinValentine,
+  dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
+  dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint,
+  dxSkinXmas2008Blue, dxSkinscxPCPainter, cxCustomData, cxFilter, cxData,
+  cxDataStorage, cxEdit, cxNavigator, Data.DB, cxDBData, cxGridLevel, cxClasses,
+  cxGridCustomView, cxGridCustomTableView, cxGridTableView, cxGridDBTableView,
+  cxGrid, dxSkinsdxBarPainter, System.Actions, Vcl.ActnList, dxBar;
+
+type
+  TdataViewForm = class(TForm)
+    cxGrid1DBTableView1: TcxGridDBTableView;
+    cxGrid1Level1: TcxGridLevel;
+    cxGrid1: TcxGrid;
+    cxGrid1DBTableView1DBColumn1: TcxGridDBColumn;
+    cxGrid1DBTableView1DBColumn8001: TcxGridDBColumn;
+    cxGrid1DBTableView1DBColumn6236: TcxGridDBColumn;
+    cxGrid1DBTableView1DBColumn6308: TcxGridDBColumn;
+    cxGrid1DBTableView1DBColumn28102018210912: TcxGridDBColumn;
+    cxGrid1DBTableView1DBColumn29102018231131: TcxGridDBColumn;
+    cxGrid1DBTableView1DBColumn36675: TcxGridDBColumn;
+    cxGrid1DBTableView1DBColumn26: TcxGridDBColumn;
+    cxGrid1DBTableView1DBColumn1408: TcxGridDBColumn;
+    cxGrid1DBTableView1DBColumn141: TcxGridDBColumn;
+    dxBarManager1: TdxBarManager;
+    ActionList1: TActionList;
+    dxBarManager1Bar3: TdxBar;
+    dxBarLargeButton1: TdxBarLargeButton;
+    dxBarLargeButton2: TdxBarLargeButton;
+    dxBarLargeButton3: TdxBarLargeButton;
+    addData: TAction;
+    deleteData: TAction;
+    exportData: TAction;
+    dxBarLargeButton4: TdxBarLargeButton;
+    dxBarLargeButton5: TdxBarLargeButton;
+    procedure addDataExecute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dataViewForm: TdataViewForm;
+
+implementation
+uses dbMain,dfmAddData;
+{$R *.dfm}
+
+procedure TdataViewForm.addDataExecute(Sender: TObject);
+begin
+   dfmDataAdd := TdfmDataAdd.Create(self);
+   dfmDataAdd.ShowModal;
+   dfmDataAdd.Free;
+end;
+
+end.
